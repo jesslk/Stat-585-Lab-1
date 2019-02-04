@@ -9,22 +9,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+### Building a Book 
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+1. Write a paragraph on the biggest problem you encountered when you were building the book, and how you managed to solve it.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+We installed all the packakges we need to knit the file to html, but we keep getting the same error message in line 783 of Conditions.Rmd, "Error: 'error' inherits from 'warning/condition' not 'error_bad_argument".  
 
-```{r cars}
-head(iris)
+
+
+
+
+
+```{r}
+library(tidyverse)
+station <- read_fwf("ushcn-v2.5-stations.txt", fwf_cols("COUNTRY CODE" == c(1,2), "NETWORK CODE" == c(3), "ID PLACEHOLDERS" == c(4,5), "COOP ID" == c(6:11), "LATITUDE" == c(13:20), "LONGITUDE" == c(22:30), "ELEVATION" == c(33:37), "STATE" == c(39,40), "NAME" == c(42:71)) )
+
+?read_fwf
 ```
-
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
