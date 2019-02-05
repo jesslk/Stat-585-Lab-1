@@ -26,3 +26,41 @@ station <- read_fwf("ushcn-v2.5-stations.txt", fwf_cols("COUNTRY CODE" == c(1,2)
 
 ?read_fwf
 ```
+
+
+
+# More weather data
+
+The file `ushcn.tavg.latest.raw.tar.gz`
+at ftp://ftp.ncdc.noaa.gov/pub/data/ushcn/v2.5 contains data on average temperatures across the US. 
+
+1. Download the file and get it to open with tools available in R. (Double-clicking is cheating! :) )
+
+```{r gz_temp_file}
+library(purrr)
+
+url <- "ftp://ftp.ncdc.noaa.gov/pub/data/ushcn/v2.5/ushcn.tavg.latest.raw.tar.gz"
+path_zip <- "/home/kmc/Downloads/"
+path_unzip <- "/home/kmc/temp_avg"
+dfile <- "tavg.gz"
+
+# download zip
+curl::curl_download(url, destfile = paste(path_zip, dfile, sep = "/"))
+
+#unzip
+untar(paste(path_zip, dfile, sep = "/"), exdir = path_unzip)
+
+# list all files
+folder <- list.files(path = path_unzip)
+files <- list.files(path = paste(path_unzip, folder, sep = "/"))
+
+# number of files in folder
+length(files)
+
+# From previous part we can find that Fort Dodge is USH00132999.  And all files are of the form ###.raw.tavg
+```
+
+
+2. Deliverable: include the number of files inside the file `ushcn.tavg.latest.raw.tar.gz` and the name of the file containing the temperature data of your home towns or Fort Dodge, IA (please specify). If things don't work write a paragraph on why things do not work and what you have tried.
+
+The number of files inside the zipped folder are 1218. The name of the file containing Fort Dodge temperatures is "USH00132999.raw.tavg".
