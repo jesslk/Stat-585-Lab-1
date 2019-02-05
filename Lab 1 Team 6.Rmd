@@ -22,6 +22,6 @@ We installed all the packakges we need to knit the file to html, but we keep get
 
 ```{r}
 library(tidyverse)
-station <- read_fwf("ushcn-v2.5-stations.txt", fwf_cols("COUNTRY CODE" == c(1,2), "NETWORK CODE" == c(3), "ID PLACEHOLDERS" == c(4,5), "COOP ID" == c(6:11), "LATITUDE" == c(13:20), "LONGITUDE" == c(22:30), "ELEVATION" == c(33:37), "STATE" == c(39,40), "NAME" == c(42:71)) )
+station <- read_fwf("ushcn-v2.5-stations.txt", fwf_positions("COUNTRY CODE" = c(1,2), "NETWORK CODE" == c(3), "ID PLACEHOLDERS" == c(4,5), "COOP ID" == c(6:11), "LATITUDE" == c(13:20), "LONGITUDE" == c(22:30), "ELEVATION" == c(33:37), "STATE" == c(39,40), "NAME" == c(42:71)) )
 
 ```
