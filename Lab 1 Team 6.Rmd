@@ -13,12 +13,12 @@ knitr::opts_chunk$set(echo = TRUE)
 
 
 
-1. The last work for Chapter 15 is "Pseudo-class".
+1. The last work for Chapter 15 is "Pseudo-class"!
 
 2. Write a paragraph on the biggest problem you encountered when you were building the book, and how you managed to solve it.
 
 We installed all the packakges we need to knit the file to html, but we keep getting the same error message in line 783 of Conditions.Rmd, "Error: 'error' inherits from 'warning/condition' not 'error_bad_argument".  
-
+We could not solve the problem, so we tried knitting the file in a different laptop. Finally, we were able to knit it to html. 
 
 
 
